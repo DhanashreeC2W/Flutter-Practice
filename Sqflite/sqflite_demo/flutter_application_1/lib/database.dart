@@ -1,42 +1,61 @@
+import 'dart:developer';
+
 import 'package:flutter_application_1/model.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
 import 'package:path/path.dart';
 
 dynamic dataBase;
 
 void createTable() async {
-  dataBase = await openDatabase(join(await getDatabasesPath(), "dataaaaaa1.db"),
+  dataBase = await openDatabase(join(await getDatabasesPath(), "data0601.db"),
       version: 1, onCreate: (db, version) {
     db.execute('''
             CREATE TABLE Details(
-  personId INT PRIMARY KEY,
+  personId INTEGER PRIMARY KEY AUTOINCREMENT,
   perName TEXT,
-  personId INT,
+  perAge INT,
   perEducation TEXT
 )
 ''');
   });
-  print("TABLE CREATED");
+  log("TABLE CREATED");
 }
-
 
 void insertData(Model obj) async {
   Database localDB = await dataBase;
- await localDB.insert("Details", obj.pseronDetailsMap(),
+  await localDB.insert("Details", obj.pseronDetailsMap(),
       conflictAlgorithm: ConflictAlgorithm.replace);
-  
 }
 
-Future<List<Map>> getData() async {
+Future<List<Model>> getData() async {
   Database localDB = await dataBase;
-  List<Map> personDetailsList = await localDB.query("Details");
-  return personDetailsList;
-
+  List personDetailsList = await localDB.query("Details");
+  log("$personDetailsList");
+  log("FILLING DATA");
+  return 
+  List.generate(personDetailsList.length, (idx) {
+    return Model(
+        perName: personDetailsList[idx]["perName"],
+        perAge: personDetailsList[idx]["perAge"],
+        perEducation: personDetailsList[idx]["perEducation"],
+        personId: personDetailsList[idx]['personId']);
+  });
 }
 
 Future updateDate(Model obj) async {
   Database localDB = await dataBase;
   await localDB.update("Details", obj.pseronDetailsMap(),
       where: "personId=?", whereArgs: [obj.personId]);
+}
+
+Future clearTable() async {
+  Database localDB = await dataBase;
+
+  ///.delete USE TO CLEAR DATA IN TABLE
+  await localDB.delete("Details");
+  ///RESETS AUTOINCREMENT VALUE TO 1(personId)
+// await localDB.execute("DELETE FROM sqflite_sequence WHERE name='data0601'");
+
+  ///TO DELETE TABLE
+ // await localDB.execute("DROP TABLE IF EXIST Details");
 }

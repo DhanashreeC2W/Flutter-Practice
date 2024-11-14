@@ -1,19 +1,19 @@
 class Model {
-  String personName;
-  int personAge;
-  String personEducation;
+  String perName;
+  int perAge;
+  String perEducation;
   int? personId;
   Model(
       {this.personId,
-      required this.personName,
-      required this.personAge,
-      required this.personEducation});
+      required this.perName,
+      required this.perAge,
+      required this.perEducation});
 
   Map<String, dynamic> pseronDetailsMap() {
     return {
-      "perName": personName,
-      "personAge": personAge,
-      "perEducation": personEducation,
+      "perName": perName,
+      "perAge": perAge,
+      "perEducation": perEducation,
     };
   }
 }
