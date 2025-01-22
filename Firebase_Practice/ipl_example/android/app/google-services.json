@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "659285701986",
+    "project_id": "ipl-application-e76be",
+    "storage_bucket": "ipl-application-e76be.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659285701986:android:7e1dc76481fa05b1a9a83b",
+        "android_client_info": {
+          "package_name": "com.example.ipl_example"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvon-MKKaemnClhYXb0pelW6_W9q3q5pE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
