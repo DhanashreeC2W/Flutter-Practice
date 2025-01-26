@@ -10,7 +10,7 @@ class EmployeeScreen1 extends StatefulWidget {
 
 class _EmployeeScreenState extends State<EmployeeScreen1> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext lontext) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Employees Data"),
@@ -33,7 +33,14 @@ class _EmployeeScreenState extends State<EmployeeScreen1> {
         ),
       ),
       floatingActionButton: FloatingActionButton(onPressed: (){
-
+         EmployeeController.of(context).empSal = 30.9;
+         setState(() {
+           
+         });
+          // Navigator.of(context).push(MaterialPageRoute(builder: (context){
+          //   return const EmployeeScreen2(empSal: 50.5);
+            
+          // }));
         
       }),
     );

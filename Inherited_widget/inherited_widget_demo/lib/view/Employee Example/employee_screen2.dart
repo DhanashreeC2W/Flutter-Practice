@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../controller/employee_controller.dart';
+import '../../controller/employee_controller.dart';
 
 class EmployeeScreen2 extends StatefulWidget {
-  const EmployeeScreen2({super.key});
+  final double empSal;
+  const EmployeeScreen2({super.key,required this.empSal});
 
   @override
   State<EmployeeScreen2> createState() => _EmployeeScreen2State();
