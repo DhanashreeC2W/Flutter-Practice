@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "234779812737",
+    "project_id": "practice-app-a86ca",
+    "storage_bucket": "practice-app-a86ca.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234779812737:android:8d9ce713f7e326ad46be80",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkdpiTEAvcNZroCeOrasAAolhbNLh22cY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
