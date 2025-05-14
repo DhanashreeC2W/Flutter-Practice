@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "554024453502",
+    "project_id": "chat-app-afacc",
+    "storage_bucket": "chat-app-afacc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554024453502:android:152ae75f8f58f565e1df2f",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAH4rfOGwuj05rMsEsoIfwlHOlNWp4R8Z8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
