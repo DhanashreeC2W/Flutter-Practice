@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  "🎉 Happy Birthday Shashi Sir 🎂",
+                  "🎉 Happy Birthday Shashi Sir 🤗🎂",
                   style: TextStyle(
                     fontSize: 45,
                     fontWeight: FontWeight.bold,
