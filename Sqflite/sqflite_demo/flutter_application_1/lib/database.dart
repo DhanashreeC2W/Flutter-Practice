@@ -8,8 +8,8 @@ dynamic dataBase;
 
 void createTable() async {
   dataBase = await openDatabase(join(await getDatabasesPath(), "data0601.db"),
-      version: 1, onCreate: (db, version) {
-    db.execute('''
+      version: 1, onCreate: (db, version)async {
+  await  db.execute('''
             CREATE TABLE Details(
   personId INTEGER PRIMARY KEY AUTOINCREMENT,
   perName TEXT,
@@ -29,7 +29,7 @@ void insertData(Model obj) async {
 
 Future<List<Model>> getData() async {
   Database localDB = await dataBase;
-  List personDetailsList = await localDB.query("Details");
+  List <Map<String,dynamic>>personDetailsList = await localDB.query("Details");
   log("$personDetailsList");
   log("FILLING DATA");
   return 

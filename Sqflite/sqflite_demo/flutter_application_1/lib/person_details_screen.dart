@@ -16,6 +16,10 @@ class _PersonDetailsScreenState extends State<PersonDetailsScreen> {
   void initState() {
     super.initState();
     createTable();
+    Future.delayed(Duration(seconds: 1),()async{
+    addCard();
+
+    });
   }
 
   TextEditingController nameController = TextEditingController();

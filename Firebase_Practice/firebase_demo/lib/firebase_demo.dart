@@ -77,7 +77,7 @@ class _FirebaseDemoState extends State<DemoFirebase> {
                     num sal = value['salary'];
 
                     if (maxSal < sal) {
-                      maxSal = sal;
+                      maxSal = sal; 
                       empList.clear();
                       empList
                           .add({"name": value['name'], "sal": value["salary"]});
@@ -91,7 +91,7 @@ class _FirebaseDemoState extends State<DemoFirebase> {
               ),
 
               ///DISLAYING DATA OF HIGHEST SALARY EMPLOYEE
-              const Text("Highest Salary Employee : -"),
+              const Text("Highest Salary Employee =>"),
               Text(empList.isNotEmpty ? empList[0]['name'] : "No data found")
             ],
           ),

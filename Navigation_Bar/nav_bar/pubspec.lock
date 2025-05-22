@@ -41,6 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.18.0"
+  custom_scaffold:
+    dependency: "direct main"
+    description:
+      name: custom_scaffold
+      sha256: dc1fd27643ba4712ce574ef8ae7fd4c8ba8acac4e5e881ef52f6ff969da6f25b
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3"
   fake_async:
     dependency: transitive
     description:

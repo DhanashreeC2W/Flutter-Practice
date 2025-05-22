@@ -30,9 +30,12 @@ class _PlayerScreenState extends State<PlayerScreen> {
           GestureDetector(
             onTap: () {
               _firebaseAuth.signOut();
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context){
-                return const LoginScreen();
-              }), (route) => false,);
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) {
+                  return const LoginScreen();
+                }),
+                (route) => false,
+              );
             },
             child: const Icon(
               Icons.logout,

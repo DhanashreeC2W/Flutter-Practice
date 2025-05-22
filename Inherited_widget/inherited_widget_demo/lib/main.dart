@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inherited_widget_demo/controller/employee_controller.dart';
-
-import 'view/employee_screen1.dart';
+import 'view/Employee Example/employee_screen1.dart';
 
 void main() {
   runApp(const MyApp());

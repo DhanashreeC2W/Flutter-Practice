@@ -21,6 +21,11 @@ class _StudentDetailsState extends State {
   SingleValueDropDownController classController = SingleValueDropDownController();
   SingleValueDropDownController departmentController = SingleValueDropDownController();
   TextEditingController rollNoController = TextEditingController();
+  
+  void asch(){
+
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +34,7 @@ class _StudentDetailsState extends State {
       home: Scaffold(
         appBar: AppBar(
           title: Text(
-            "Student Details",
+             "${firstNameController.text}",
             style: GoogleFonts.italiana(
               fontSize: 28,
               fontWeight: FontWeight.w900,
@@ -51,7 +56,7 @@ class _StudentDetailsState extends State {
               Row(
                 children: [
                   Text(
-                    "First Name : ",
+                    "${firstNameController.text}",
                     style: GoogleFonts.quicksand(
                       fontSize: 22,
                       fontWeight: FontWeight.w700,
@@ -261,6 +266,9 @@ class _StudentDetailsState extends State {
       
               Center(
                 child: GestureDetector(
+                  onTap: (){
+                    print("${departmentController.dropDownValue}");
+                  },
                   child: Container(
                     height: 60,
                     width: 200,
