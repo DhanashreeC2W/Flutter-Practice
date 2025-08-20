@@ -9,15 +9,15 @@ void main() {
 }
 
 class MainApp extends StatelessWidget {
-  
   const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    log("In main build",name: "BUILD",time: DateTime(DateTime.december),);
-    return const MaterialApp(
-      
-      home: TodoScreen()
+    log(
+      "In main build",
+      name: "BUILD",
+      time: DateTime(DateTime.december),
     );
+    return MaterialApp(home: TodoScreen());
   }
 }
