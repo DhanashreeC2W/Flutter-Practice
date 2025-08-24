@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:getx_basics/controller/todo_controller.dart';
 
 class TodoScreen extends StatefulWidget {
@@ -11,7 +12,7 @@ class TodoScreen extends StatefulWidget {
 }
 
 class _TodoScreenState extends State<TodoScreen> {
-  TodoController todoController = TodoController();
+  TodoController todoController = Get.put(TodoController());
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   TextEditingController dateController = TextEditingController();
@@ -19,21 +20,33 @@ class _TodoScreenState extends State<TodoScreen> {
   @override
   Widget build(BuildContext context) {
     log("In TODOScreen Build");
-    return Scaffold(
-      body: ListView.builder(itemBuilder: (context, index) {
-        return myCard();
-      }),
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        openBottonSheet();
-      }),
-    );
+    return Obx(() => Scaffold(
+          body: ListView.builder(
+              itemCount: todoController.todoList.length,
+              itemBuilder: (context, index) {
+                log("in item builder");
+                return myCard(index);
+              }),
+          floatingActionButton: FloatingActionButton(onPressed: () {
+            openBottonSheet();
+          }),
+        ));
   }
 
-  Widget myCard() {
+  Widget myCard(int index) {
+    log("in myCard : $index");
     return Container(
       height: 150,
       width: MediaQuery.of(context).size.width,
       margin: const EdgeInsets.all(20),
+      color: Colors.amber,
+      child: Column(
+        children: [
+          Text(todoController.todoList[index].title),
+          Text(todoController.todoList[index].descr),
+          Text(todoController.todoList[index].date.toString()),
+        ],
+      ),
     );
   }
 
@@ -77,7 +90,11 @@ class _TodoScreenState extends State<TodoScreen> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    todoController.addTask(title, descr, date)
+                    String title = titleController.text;
+                    String descr = descriptionController.text;
+                    int date = int.parse(dateController.text);
+                    todoController.addTask(title, descr, date);
+                    Navigator.of(context).pop();
                   },
                   child: const Text("Submit"),
                 ),

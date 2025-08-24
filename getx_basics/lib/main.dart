@@ -18,6 +18,6 @@ class MainApp extends StatelessWidget {
       name: "BUILD",
       time: DateTime(DateTime.december),
     );
-    return MaterialApp(home: TodoScreen());
+    return const MaterialApp(home: TodoScreen());
   }
 }
