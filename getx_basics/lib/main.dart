@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_basics/model/language_model.dart';
 import 'package:getx_basics/view/todo_screen.dart';
 import 'package:getx_basics/view/translator_screen.dart';
 
@@ -20,8 +21,15 @@ class MainApp extends StatelessWidget {
       name: "BUILD",
       time: DateTime(DateTime.december),
     );
-    return GetMaterialApp(getPages: [
-      GetPage(name: "/translator_screen", page: () => const TranslatorScreen(),),
-    ], home: const TodoScreen());
+    return GetMaterialApp(
+        translations: LanguageModel(),
+        locale: const Locale('en', "US"), //default language
+        getPages: [
+          GetPage(
+            name: "/translator_screen",
+            page: () => TranslatorScreen(),
+          ),
+        ],
+        home: const TodoScreen());
   }
 }

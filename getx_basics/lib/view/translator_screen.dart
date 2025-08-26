@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:getx_basics/controller/language_controller.dart';
 
 class TranslatorScreen extends StatelessWidget {
-  const TranslatorScreen({super.key});
+  LanguageController languageController = Get.put(LanguageController());
+  // const TranslatorScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,9 +12,24 @@ class TranslatorScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            ElevatedButton(onPressed: () {},style: ButtonStyle(fixedSize: WidgetStatePropertyAll(Size(200, 200))), child: Text("Marathi")),
-            ElevatedButton(onPressed: () {}, child: Text("English")),
-            ElevatedButton(onPressed: () {}, child: Text("Hindi"))
+            Text(
+              'hello'.tr,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  languageController.changeLanguage('hi', 'IN');
+                },
+                style: const ButtonStyle(
+                    fixedSize: WidgetStatePropertyAll(Size(200, 80))),
+                child: const Text("Marathi")),
+            ElevatedButton(onPressed: () {
+                  languageController.changeLanguage('en', 'US');
+
+            }, child: const Text("English")),
+            ElevatedButton(onPressed: () {
+                  languageController.changeLanguage('french', 'FR');
+
+            }, child: const Text("French"))
           ],
         ),
       ),
