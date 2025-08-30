@@ -1,4 +1,6 @@
-/// VIEW: main.dart
+
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/controller/ai_controller.dart';
 
@@ -16,9 +18,12 @@ class _AIHomeScreenState extends State<AIHomeScreen> {
   String _result = '';
 
   Future<void> _getResponse() async {
+
     String answer = await _controller.fetchAnswer(_inputController.text);
+    log(_inputController.text,name: "View");
     setState(() {
       _result = answer;
+      log(_result,name: "View");
     });
   }
 

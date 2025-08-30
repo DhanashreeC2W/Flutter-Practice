@@ -5,7 +5,7 @@ class AiResponseModel {
 
   factory AiResponseModel.fromJson(Map<String, dynamic> json) {
     return AiResponseModel(
-      reply: json['output'] ?? "No Response",
+      reply: json['response'] ?? "No Response",
     );
   }
 }
