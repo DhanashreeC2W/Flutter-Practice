@@ -43,13 +43,12 @@ void main() async {
 
 //   log("${await getdata()}");
 
-  player2 = PlayerModel(name: "Dhana", jerNo: 3, avg: 1000);
+  player2 = PlayerModel(name: "MB", jerNo: 3, avg: 2000);
   await updatedata(player2);
-  log("${await getdata()}");
-//  await deleteData(player1.jerNo);
-//   log("${await getdata()}",name: "After delete");
-  player3 = PlayerModel(name: "DD1", jerNo: 7, avg: 100);
-  await updatedata(player3);
+  log("${await getdata()}",name: "Updated Data");
+ await deleteData(player1.jerNo);
+  log("${await getdata()}",name: "After delete");
+
 }
 
 void insertData(PlayerModel obj) async {
@@ -77,8 +76,8 @@ Future<List<Map<String, dynamic>>> getdata() async {
 updatedata(PlayerModel obj) async {
   Database? localDB = database;
   await localDB!
-      .update("Player", obj.playerMap(), where: "jerNo=? AND name=?", whereArgs: [
-    obj.jerNo,obj.name
+      .update("Player", obj.playerMap(), where: "jerNo=? ", whereArgs: [
+    obj.jerNo,
   ]);
   log(obj.name);
 }
